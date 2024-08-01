@@ -6,13 +6,23 @@ import {
 	RouterProvider,
 } from "react-router-dom";
 import { ProtectedLayout } from "./components/app";
-import { Auth } from "./pages";
+import { AddTask, Auth, Home } from "./pages";
 
 export default function App() {
 	const router = createBrowserRouter([
 		{
 			path: "/",
 			element: <ProtectedLayout />,
+			children: [
+				{
+					path: "home",
+					element: <Home />,
+				},
+				{
+					path: "tasks/add",
+					element: <AddTask />,
+				},
+			],
 		},
 		{
 			path: "/auth",

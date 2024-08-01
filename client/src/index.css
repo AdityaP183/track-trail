@@ -76,3 +76,6 @@ body {
 .allTransition {
     @apply transition-all delay-150 ease-in
 }
+.noScrollBar::-webkit-scrollbar {
+    display: none;
+}

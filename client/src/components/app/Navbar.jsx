@@ -3,15 +3,32 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FaSearch } from "react-icons/fa";
+import { taskSample } from "../../utils/sampleData";
 
 const taskStatus = [
-	{ id: "all", name: "Total Tasks", bg: "bg-gray-500/20" },
-	{ id: "completed", name: "Completed", bg: "bg-emerald-500/20" },
-	{ id: "in-progress", name: "In Progress", bg: "bg-orange-500/20" },
-	{ id: "pending", name: "Pending", bg: "bg-rose-500/20" },
+	{ id: "all", name: "Total Tasks", bg: "bg-gray-500/20", count: 0 },
+	{ id: "completed", name: "Completed", bg: "bg-emerald-500/20", count: 0 },
+	{
+		id: "in-progress",
+		name: "In Progress",
+		bg: "bg-orange-500/20",
+		count: 0,
+	},
+	{ id: "pending", name: "Pending", bg: "bg-rose-500/20", count: 0 },
 ];
 
 export default function Navbar() {
+	taskStatus[0].count = taskSample.length;
+	taskStatus[1].count = taskSample.filter(
+		(task) => task.status === "completed"
+	).length;
+	taskStatus[2].count = taskSample.filter(
+		(task) => task.status === "pending"
+	).length;
+	taskStatus[3].count = taskSample.filter(
+		(task) => task.status === "in-progress"
+	).length;
+
 	return (
 		<Card className="w-full h-[150px]">
 			<CardContent className="flex h-full p-4 gap-10">
@@ -42,7 +59,9 @@ export default function Navbar() {
 								<h4 className="text-sm font-medium">
 									{status.name}
 								</h4>
-								<h1 className="text-3xl font-bold">1020</h1>
+								<h1 className="text-3xl font-bold">
+									{status.count}
+								</h1>
 							</CardContent>
 						</Card>
 					))}

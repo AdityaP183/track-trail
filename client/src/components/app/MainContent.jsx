@@ -9,7 +9,7 @@ export default function MainContent({ children }) {
 		>
 			<Navbar />
 			<div
-				className="main-content w-full overflow-y-auto"
+				className="main-content w-full"
 				style={{ height: "calc(100% - 150px)" }}
 			>
 				{children}

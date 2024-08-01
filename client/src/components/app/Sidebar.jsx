@@ -5,7 +5,7 @@ import {
 	MdAssignmentLate,
 	MdSettings,
 } from "react-icons/md";
-import { FaPowerOff } from "react-icons/fa";
+import { FaPowerOff, FaHourglassHalf } from "react-icons/fa";
 import {
 	Tooltip,
 	TooltipContent,
@@ -19,27 +19,33 @@ const sidebarLinks = [
 	{
 		id: "dashboard",
 		label: "Dashboard",
-		icon: <MdSpaceDashboard className="" />,
+		icon: <MdSpaceDashboard />,
 		href: "/",
 	},
 	{
 		id: "completed",
 		label: "Completed",
-		icon: <MdAssignmentTurnedIn className="" />,
+		icon: <MdAssignmentTurnedIn />,
 		href: "/completed",
 	},
 	{
-		id: "remaining",
-		label: "Not Completed",
-		icon: <MdAssignmentLate className="" />,
-		href: "/remaining",
+		id: "in-progress",
+		label: "In Progress",
+		icon: <FaHourglassHalf />,
+		href: "/in-progress",
+	},
+	{
+		id: "pending",
+		label: "Pending",
+		icon: <MdAssignmentLate />,
+		href: "/pending",
 	},
 	{
 		id: "setting",
 		label: "Settings",
-		icon: <MdSettings className="" />,
+		icon: <MdSettings />,
 		href: "/settings",
-	}
+	},
 ];
 
 export default function Sidebar() {
