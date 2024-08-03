@@ -1,10 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-	createBrowserRouter,
-	Navigate,
-	redirect,
-	RouterProvider,
-} from "react-router-dom";
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ProtectedLayout } from "./components/app";
 import { AddTask, Auth, Home } from "./pages";
 
@@ -15,12 +10,29 @@ export default function App() {
 			element: <ProtectedLayout />,
 			children: [
 				{
-					path: "home",
+					path: "",
 					element: <Home />,
 				},
 				{
-					path: "tasks/add",
-					element: <AddTask />,
+					path: "tasks",
+					children: [
+						{
+							path: "add",
+							element: <AddTask />,
+						},
+						{
+							path: "pending",
+							element: <AddTask />,
+						},
+						{
+							path: "in-progress",
+							element: <AddTask />,
+						},
+						{
+							path: "completed",
+							element: <AddTask />,
+						},
+					],
 				},
 			],
 		},

@@ -5,7 +5,7 @@ const TaskSchema = mongoose.Schema(
 		title: {
 			type: String,
 			required: true,
-            trim: true,
+			trim: true,
 		},
 		description: {
 			type: String,
@@ -23,9 +23,6 @@ const TaskSchema = mongoose.Schema(
 		},
 		dueDate: {
 			type: Date,
-		},
-		tags: {
-			type: [String],
 		},
 	},
 	{ timestamps: true }

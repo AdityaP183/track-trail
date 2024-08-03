@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import TaskBox from "../../components/app/TaskBox";
 import { taskSample } from "../../utils/sampleData";
 import { FaPlus, FaSortAmountDownAlt, FaSortAmountUp } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { TaskList } from "../../components/app";
 
 export default function Home() {
 	const [sortBy, setSortBy] = useState("created at");
@@ -73,14 +73,7 @@ export default function Home() {
 				</div>
 				<Separator />
 			</div>
-			<div
-				className="tasks w-full grid grid-cols-5 gap-5 overflow-y-auto noScrollBar"
-				style={{ height: "calc(100% - 50px)" }}
-			>
-				{taskSample.map((task) => (
-					<TaskBox key={task.id.$oid} data={task} />
-				))}
-			</div>
+			<TaskList taskData={taskSample} />
 		</div>
 	);
 }
